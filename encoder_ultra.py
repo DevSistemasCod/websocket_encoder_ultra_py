@@ -53,13 +53,17 @@ def criar_objetos_ultrassonico(vetor_contadores):
     data_str = "{:02d}/{:02d}/{:04d}".format(tempo[2], tempo[1], tempo[0])
     hora_str = "{:02d}:{:02d}:{:02d}".format(tempo[3], tempo[4], tempo[5])
     lista = []
-    for indice, quantidade in enumerate(vetor_contadores):
-        lista.append({
-            "quantidade": int(quantidade),
+    for i in range(len(vetor_contadores)):
+        quantidade = vetor_contadores[i]
+        objeto = {
+            "id": ESP_ID,
+            "sensor": "ultrassonico",
             "tipo": TIPOS_PECA[indice],
+            "quantidade": int(quantidade),
             "data": data_str,
             "hora": hora_str
-        })
+        }
+        lista.append(objeto)
     return lista
 
 def criar_payload_encoder(contagem):
@@ -189,4 +193,5 @@ async def main():
 
 # ======== Execução ========
 asyncio.run(main())
+
 
