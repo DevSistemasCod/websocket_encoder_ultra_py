@@ -58,7 +58,7 @@ def criar_objetos_ultrassonico(vetor_contadores):
         objeto = {
             "id": ESP_ID,
             "sensor": "ultrassonico",
-            "tipo": TIPOS_PECA[indice],
+            "tipo": TIPOS_PECA[i],
             "quantidade": int(quantidade),
             "data": data_str,
             "hora": hora_str
@@ -193,5 +193,6 @@ async def main():
 
 # ======== Execução ========
 asyncio.run(main())
+
 
 
